@@ -1,0 +1,212 @@
+<html>
+<head>
+<title>Kameleon PS4 900FW Jailbreak V4.6</title>
+<link rel="shortcut icon" href="favicon.ico"></link>
+<link rel="stylesheet" href="btn.css">
+<link rel="stylesheet" href="btn2.css">
+
+<style>
+body{background-image: url("bg.jpg");
+color:white;font-size:20px;text-align:center;margin:0;overflow:hidden;}
+.info{overflow: hidden;position: fixed;position: absolute;top: 45%;left: 50%;font-size: 25px;font-family: sans-serif;color: #b8b8b8;transform: translate(-50%, -50%);}
+.button{background-color: white;color: black;height: 5%;width: 13,7%;cursor: pointer;font-size: medium;}
+</style>
+
+<script>
+if (window.applicationCache.status=='0'){window.location.replace("cache.html");}
+function awaitpl() {
+  msgs.innerHTML= LoadedMSG;
+ }
+function pldone() {
+  msgs.innerHTML= LoadedMSG;
+}
+function jbdone() {
+  msgs.innerHTML= "PS4 9.00 Jailbreak Done!!!.";
+}
+function goldhendone() {
+  msgs.innerHTML= "GoldHEN is already loaded!!!.";
+}
+
+//Stooged Method
+var payloadData = "";
+
+function loadPayloadData() // preload payload data
+{
+	if (PLfile)
+	{
+        
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', PLfile, true);
+        xhr.overrideMimeType('text/plain; charset=x-user-defined');
+        xhr.onload = function(e) {
+        if (this.status == 200) {
+            payloadData = this.response;
+            setTimeout(poc, 1500);
+        }
+  else
+        {
+			alert("Failed to load " + PLfile + " - " + this.status);
+      return;
+        }};
+        xhr.send();
+        
+	}
+}
+
+</script>
+<script src="int64.js"></script>
+<script src="rop.js"></script>
+<script src="kexploit.js"></script>
+<script src="webkit.js"></script>
+</head>
+<body>
+  <h1 id=msgs style="font-size:25px;color:white">Kameleon PS4 900FW Jailbreak V4.6</h1>
+    <div id=mymenu style="text-align:center">
+    <div style="font-size:20px;color:white;text-shadow: 2px 1px 3px #FF00FF" text-align= center>Pass = <span id=passCounter></span>&nbsp;&nbsp;:&nbsp;&nbsp;Fail = <span id=failCounter></span></div>
+    <div style="font-size:20px;color:white;text-shadow: 2px 1px 3px #FF00FF">
+    PS4 Firmware <span id="PS4fw"></span></div>
+    <br>
+    <div style="font-size:20px;color:white;text-shadow: 2px 1px 3px #FF00FF">BIN LOADER</div>
+    <button class="btnkme" onMouseOver="msgs.innerHTML='Receives .Bin payloads on port 9020 via NetCat'"; onmouseout="msgs.innerHTML='Kameleon PS4 900FW Jailbreak V4.6'" onclick="load_binloader(); return false">Binloader-9020</button>
+    <button class="btnkme" onMouseOver="msgs.innerHTML='Receives .Bin payloads on port 9021 via NetCat'"; onmouseout="msgs.innerHTML='Kameleon PS4 900FW Jailbreak V4.6'" onclick="load_binloader9021(); return false">Binloader-9021</button>
+    <br><br>
+    <div style="font-size:20px;color:white;text-shadow: 2px 1px 3px #FF00FF">GOLDHEN</div>
+    <button class="btnkme" onMouseOver="msgs.innerHTML='GoldHen v2.3beta2 Version - By SiSTRo'"; onmouseout="msgs.innerHTML='Kameleon PS4 900FW Jailbreak V4.6'" onclick="load_goldhenb2(); return false">GoldHen v2.3b2 (Beta)</button>
+    <button style="text-align:center;text-shadow: 1px 0px 3px blue" class="btnkme1" onMouseOver="msgs.innerHTML='GoldHen v2.1.1 (Stable) - By SiSTRo'"; onmouseout="msgs.innerHTML='Kameleon PS4 900FW Jailbreak V4.6'" onclick="load_goldhen211(); return false">GoldHen v2.1.1 (Stable)</button>
+    <button style="text-align:center;text-shadow: 1px 0px 3px blue" class="btnkme" onMouseOver="msgs.innerHTML='GoldHen v2.2.2 (Latest) - By SiSTRo'"; onmouseout="msgs.innerHTML='Kameleon PS4 900FW Jailbreak V4.6'" onclick="load_goldhen221(); return false">GoldHen v2.2.2 (Latest)</button>
+	<br><br>
+    <button class="btnkme" onMouseOver="msgs.innerHTML='Go To 900FW Payloads Menu Offline Cache'"; onmouseout="msgs.innerHTML='Kameleon PS4 900FW Jailbreak V4.6'" onclick="load_plmenu(); return false">PS4 900FW Payloads Menu Offline</button>
+    
+    <br><br>
+    <p style="text-align:center;font-size:25px;color:#FF69B4;text-shadow: 1px 0px 3px black">Massive Thanks - Znullptr, ChendoChap, Specter, Sleirsgoevy, theflow0, SiSTRo, Al-Azif, PRB-Borg, Leeful, Nazky And Many More...</p>
+    <p style="text-align:center;font-size:25px;color:#F535AA;text-shadow: 1px 0px 3px black">https://twitter.com/KameleonRe</p>
+    </div>
+    <script>
+    var UA = navigator.userAgent.substring(navigator.userAgent.indexOf('5.0 (') + 19, navigator.userAgent.indexOf(') Apple')).replace("layStation 4/","");
+    if (UA == "9.00"){PS4fw.innerHTML="v"+UA+" Detected"};if(UA != "9.00"){PS4fw.innerHTML="Spoofed To v"+UA};
+    </script>
+    <script>
+    if (localStorage.passcount == null || localStorage.passcount == undefined) localStorage.passcount=0;
+     if (localStorage.passCounter == null || localStorage.passCounter == undefined ){
+      passCounter.innerHTML=localStorage.passcount;}
+    if (localStorage.failcount == null || localStorage.failcount == undefined) localStorage.failcount=0;
+     if (localStorage.failCounter == null || localStorage.failCounter == undefined ){
+      failCounter.innerHTML=localStorage.failcount;}
+</script>
+    </script>
+
+<script>
+var exec_type = "";
+sessionStorage.setItem("goldhen","");
+
+function load_mainmenu(){
+msgs.innerHTML="<h1 style='font-size:25px;text-align:center;'>Going to Main Menu!!!</h1>";
+var link = document.createElement('a');
+document.body.appendChild(link);
+link.href = '../index.html'; By SiSTRo'"; onmouseout="msgs.innerHTML='Kameleon PS4 900FW Jailbreak V4.6'" onclick="load_goldhen211(); return false">GoldHen V2.1.1</button>
+    <br><br>
+    <button class="btnkme" onMouseOver="msgs.innerHTML='Go To 900FW Payloads Menu Offline Cache'"; onmouseout="msgs.innerHTML='Kameleon PS4 900FW Jailbreak V4.6'" onclick="load_plmenu(); return false">PS4 900FW Payloads Menu Offline</button>
+    
+    <br><br>
+    <p style="text-align:center;font-size:25px;color:#FF69B4;text-shadow: 1px 0px 3px black">Massive Thanks - Znullptr, ChendoChap, Specter, Sleirsgoevy, theflow0, SiSTRo, Al-Azif, PRB-Borg, Leeful, Nazky And Many More...</p>
+    <p style="text-align:center;font-size:25px;color:#F535AA;text-shadow: 1px 0px 3px black">https://twitter.com/KameleonRe</p>
+    </div>
+    <script>
+    var UA = navigator.userAgent.substring(navigator.userAgent.indexOf('5.0 (') + 19, navigator.userAgent.indexOf(') Apple')).replace("layStation 4/","");
+    if (UA == "9.00"){PS4fw.innerHTML="v"+UA+" Detected"};if(UA != "9.00"){PS4fw.innerHTML="Spoofed To v"+UA};
+    </script>
+    <script>
+    if (localStorage.passcount == null || localStorage.passcount == undefined) localStorage.passcount=0;
+     if (localStorage.passCounter == null || localStorage.passCounter == undefined ){
+      passCounter.innerHTML=localStorage.passcount;}
+    if (localStorage.failcount == null || localStorage.failcount == undefined) localStorage.failcount=0;
+     if (localStorage.failCounter == null || localStorage.failCounter == undefined ){
+      failCounter.innerHTML=localStorage.failcount;}
+</script>
+    </script>
+
+<script>
+var exec_type = "";
+sessionStorage.setItem("goldhen","");
+
+function load_mainmenu(){
+msgs.innerHTML="<h1 style='font-size:25px;text-align:center;'>Going to Main Menu!!!</h1>";
+var link = document.createElement('a');
+document.body.appendChild(link);
+link.click();  
+}
+	
+
+function load_goldhen211(){
+msgs.innerHTML="<h1 style='font-size:25px;text-align:center;'>Loading GoldHen V2.1.1 Please wait!!!</h1>";
+LoadedMSG="GoldHen V2.1.1 Loaded. Please Close The Browser!!! Re-Open it if you wanna lauch any other payload";
+PLfile = "pl_goldhen211.bin";
+if (sessionStorage.goldhen != "loaded")
+{
+  loadPayloadData();
+  
+}else{
+  goldhendone();
+  return;
+}
+}
+		
+
+function load_plmenu(){
+msgs.innerHTML="<h1 style='font-size:25px;text-align:center;'>Loading 900FW Payload Menu (Offline)!!!</h1>";
+var link = document.createElement('a');
+document.body.appendChild(link);
+link.href = './payloads/index.html';
+link.click();  
+}
+
+
+
+function load_goldhenb2(){
+msgs.innerHTML="<h1 style='font-size:25px;text-align:center;'>Loading GoldHen V2.0B2. Please wait!!!</h1>";
+LoadedMSG="GoldHen V2.3B2 Loaded. Please Close The Browser!!! Re-Open it if you wanna lauch any other payload";
+PLfile = "pl_goldhen23b2.bin";
+if (sessionStorage.goldhen != "loaded")
+{
+  loadPayloadData();
+
+}else{
+  goldhendone();
+  return;
+}
+}
+
+
+function load_goldhen221(){
+msgs.innerHTML="<h1 style='font-size:25px;text-align:center;'>Loading GoldHen V2.2.2. Please wait!!!</h1>";
+LoadedMSG="GoldHen V2.2.2 Loaded. Please Close The Browser!!! Re-Open it if you wanna lauch any other payload";
+PLfile = "pl_goldhen221.bin";
+if (sessionStorage.goldhen != "loaded")
+{
+  loadPayloadData();
+
+}else{
+  goldhendone();
+  return;
+}
+}	
+
+function load_binloader(){
+msgs.innerHTML="<h1 style='font-size:25px;text-align:center;'>Loading Bin Loader on Port 9020. Please wait!!!";
+LoadedMSG="Awaiting For Payload on Port 9020...";
+exec_type = "binloader";
+setTimeout(poc, 1500);
+}
+
+function load_binloader9021(){
+msgs.innerHTML="<h1 style='font-size:25px;text-align:center;'>Loading Bin Loader on Port 9021. Please wait!!!</h1>";
+LoadedMSG="Awaiting For Payload on Port 9021...";
+PLfile = "pl_miraldr.bin";
+exec_type = "binloader9021";
+loadPayloadData();
+}
+
+</script>
+    
+</body>
+</html>
